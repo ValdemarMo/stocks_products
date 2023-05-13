@@ -6,16 +6,13 @@ from logistic.models import Product, Stock, StockProduct
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['title', 'description']
-    pass
+        fields = ['id', 'title', 'description']
 
 
 class ProductPositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = StockProduct
         fields = ['product', 'quantity', 'price']
-
-    pass
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -51,14 +48,3 @@ class StockSerializer(serializers.ModelSerializer):
 
         return stock
 
-#
-# class ProductViewSet(ModelViewSet):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
-#     # при необходимости добавьте параметры фильтрации
-#
-#
-# class StockViewSet(ModelViewSet):
-#     queryset = Stock.objects.all()
-#     serializer_class = StockSerializer
-#     # при необходимости добавьте параметры фильтрации
